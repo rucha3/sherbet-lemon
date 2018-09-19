@@ -1,4 +1,4 @@
-name := "akka-streams-quickstart"
+name := "sherbet-lemon"
 
 version := "0.1"
 
