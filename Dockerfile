@@ -1,6 +1,8 @@
 # Define the environment
 FROM ubuntu
 
+MAINTAINER Rucha rucha@indix.com
+
 # Define environment variables
 ENV SHARE /usr/local/share
 ENV SCALA_HOME $SHARE/scala

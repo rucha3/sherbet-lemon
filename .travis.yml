@@ -5,3 +5,9 @@ sudo: required
 
 services:
   - docker
+
+before_install:
+  - docker build -t sherbet-lemon .
+  - docker push sherbet-lemon
+  - docker run -d -p sherbet-lemon
+  - docker ps -a
