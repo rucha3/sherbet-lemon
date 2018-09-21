@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sbt clean assembly
+sbt clean test assembly
 docker build -t rucha3/sherbet-lemon .
 docker images
 echo $docker_usname1

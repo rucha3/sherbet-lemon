@@ -4,7 +4,7 @@ scala:
 sudo: required
 services:
 - docker
-before_install:
+script:
 - ./run.sh
 env:
   global:
