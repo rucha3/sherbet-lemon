@@ -5,19 +5,7 @@ sudo: required
 services:
 - docker
 before_install:
-- sbt clean assembly
-- docker build -t rucha3/sherbet-lemon .
-- docker images
-- echo $docker_usname1
-- echo $docker_pswd1
-- docker login -u $docker_usname1 --password $docker_pswd1
-- docker push rucha3/sherbet-lemon
-- nam=`docker run -d -p 8000:8000 rucha3/sherbet-lemon`
-- docker ps -a
-- sleep 5
-- curl http://localhost:8000/health
-- curl http://localhost:8000/greet/voldy
-- docker inspect $nam | grep IPAddress
+- ./run.sh
 env:
   global:
   - secure: yos7DkRhDiZ3pFVnqznHFxP9pSqcLJNcfhzrHIq2oTzlPMgA/cbIvfqB3Wq4CQJj/DfyNW0gUrd1QG29J3fTqKPpz0MeNLW8KC2YiZWgnzKC1u2C29vRJcA7mhXyKYNrNq2OU8wngjpdkI2VspNLOv9F6mr0pvFiRKK0c4nhmtRB0dyETeOa0w/HxT+bS2yTHvEUVB1CNguZ4w5HOSZpZZ/jads9CEK7cfIFwVBagMZS9VkxuHTlTiNHmutiSoLO81afJMQBOPi6v9Z+pmWsEfx1v7HK2uqzApVQOA6EQtRQB93Lw3s3tVwwQSFApmuTQ4S7jCR6cm7bMcJx7BdqCtqg2OrtaOfAoJPVOzYfECTE8x1QiFtU388xO5rSYgdVqnHafF0Dnd8qeluen400tgjVYbQpH+TkkyADOjpWe0I8X1CUjHDHlKBeY5Mdo9+bVJz4vRZiDE0y4DNs4hrlgrqBcvgUHflS1OOT0YuG7c5QcFykEaVxG1l3ZSMJskhVWybO7w+2KxC75yGeRyggOeIeVOT0lXOZCH0mIQ7nzOkuCGAqBP7e2f9Zq2XB8zi0BCWYaQy3TCtuSuf7HBnL1EQ3s01OLVganTv/sPf6pGZmdjYos8Nw12FKM9g2RxEddHtnFCH4p/CVbcDJQ7kHc/gAiMQ5RYGJaAXoPFWHbdA=
