@@ -7,12 +7,6 @@ RUN apt-get update && apt-get install -y \
     openjdk-8-jre \
     openjdk-8-jdk
 
-# Define environment variables
-ENV SHARE /usr/local/share
-ENV SCALA_HOME $SHARE/scala
-ENV JAVA_HOME $SHARE/java
-ENV PATH=$SCALA_HOME/bin:$JAVA_HOME/bin:$PATH
-
 ADD target/scala-**/sherbet-lemon-assembly-0.1.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 # Move over JDK and Scala
