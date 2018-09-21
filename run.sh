@@ -1,7 +1,8 @@
 #! /bin/bash
 
 sbt clean test assembly
-docker build -t rucha3/sherbet-lemon .
+img=rucha3/sherbet-lemon-1.0."$TRAVIS_BUILD_NUMBER"
+docker build -t $img .
 docker images
 echo $docker_usname1
 echo $docker_pswd1
