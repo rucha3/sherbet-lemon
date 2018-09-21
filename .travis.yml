@@ -12,7 +12,7 @@ before_install:
   - docker images
   - docker login -u $docker_usname -p $docker_pswd
   - docker push rucha3/sherbet-lemon
-  - nam=docker run -d -p 8000:8000 rucha3/sherbet-lemon
+  - nam=`docker run -d -p 8000:8000 rucha3/sherbet-lemon`
   - docker ps -a
   - sleep 5
   - curl http://localhost:8000/health
