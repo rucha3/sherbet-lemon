@@ -1,20 +1,22 @@
 language: scala
 scala:
-   - 2.11.11
+- 2.11.11
 sudo: required
-
 services:
-  - docker
-
+- docker
 before_install:
-  - sbt clean assembly
-  - docker build -t rucha3/sherbet-lemon .
-  - docker images
-  - docker login -u $docker_usname -p $docker_pswd
-  - docker push rucha3/sherbet-lemon
-  - nam=`docker run -d -p 8000:8000 rucha3/sherbet-lemon`
-  - docker ps -a
-  - sleep 5
-  - curl http://localhost:8000/health
-  - curl http://localhost:8000/greet/voldy
-  - docker inspect $nam | grep IPAddress
+- sbt clean assembly
+- docker build -t rucha3/sherbet-lemon .
+- docker images
+- docker login -u $docker_usname1 -p $docker_pswd1
+- docker push rucha3/sherbet-lemon
+- nam=`docker run -d -p 8000:8000 rucha3/sherbet-lemon`
+- docker ps -a
+- sleep 5
+- curl http://localhost:8000/health
+- curl http://localhost:8000/greet/voldy
+- docker inspect $nam | grep IPAddress
+env:
+  matrix:
+  - secure: z1cdZHb8IzrJeMFqfZvr4Spc6gYETmovEGpoK/jYd5LuWddP+mFNS1hvmb3NIEAlgo26gKG02EbOIKjqzJ5uBwdCEqhAuCVxezz7X1v4IdduelhiS6vdPw3wr27vHcwiAQcoPwJLHZ0QxhlvFKNCZnPFoNK3i5CVxO1eh10vWyhPAqQERUTC6cq01l4EHXTvIMvj1pK8YlV3dLIpi2/rX4b2vYncgiW51H+FRCUbt/nL4Ln8eMnz1PsZunaNgR7+KkKSxlWOVVfBvoTTOs/1cY53Ye/kUjb41kM1vAXHBpNq9XoJzoRq+PWIvDgkL4Nml6KRyTRcFyT+uoN/j/rxYbck/3ZHRneM2DAqBHkHMGf25ZaEJssXz9YVWt/CorSGnL+6ME1e5h/Opg0R/ui3MtLy4jXNHAk7P3EppYpieoE0rx/BAUMWj7txtyGMPhFX1sBcC36BzW6TtWx5I9WsNnG1xsKdLThg2ShBAFXZqsbBeW4Wh/2dS0dbVADbtD8SgKq/olPGGnf0moOK/MhB0KN3UsZababQtTpF1ewB9TjS5pGBUUiQRtxcwWZsJ44ms81f8t4qPEBHa8uJU6v18DLpcqJsFJnphqs1ZwevmCAEurMlY3xjAzt6MsE5IuLbn2dVwugXG2q/0vceDFfIVxU5/4leYKG4fAYSI3BaGYI=
+  - secure: KgQdjBerVGVSa+ibKH3DugbRIJEJSJjo+yFr5kqwOSs0ywFQ2JD7LWa971T42ancGlA6tNXOhPr6iFbhTDGtweuiPbdz1HEMjbQ/64BXXtcK5ocVUWCZDI5uaNQIlMkDO2+gv2tyPzJeIA5lVVfSpy5yN6HNJkYdJUdw+RjtXcDnHt9MjhDNTpMS0PsDCb5jTs+JXzlHOZougASuFgGa/fMmgmoFo/D51X+P2eUGKvhf2Syt1BKDg3awZvuGLIgkmSlHn+Db1sLybC3gZSgvy/gbqZgj/Y1l8EHHRuG9lqGIyJIjaPRW5tbiNY1k14POxj5j88wj6LOERVKuEh7EFbVGTA23Yk9wPO1VKwNWJmZq3BQK57Fc1nDL6ISLeMJ8Y4pXdJQubWFUHWVRw5tenVNPYkoEReNTKmPxZhTGOP4qQoPqng43uLar1Lqt528n5hcasbcxs2jAgpcam00tb9DIxL4LneBG6Z7uOi8dBs44Ksqsz5SYr1NVlPB9Iqs8M/+rle5bv6LfhC6ZH8ARC6NVWYzztei2evXn0mkzhsP0NDoLIbuH3wrk2HU9rO5mcxD1Sw6ObaQ/ElFS/O6dRy9xDZzr9vXBnRptz9w54t5LztpnB8YTo1t3dJpYAqL+qiXUO6jCqT06QdTFbMn54QxhSTYckrE7U3/s49Hs1Nw=
