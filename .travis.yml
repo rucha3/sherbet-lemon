@@ -7,7 +7,9 @@ services:
   - docker
 
 before_install:
+  - sbt clean assembly
   - docker build -t rucha3/sherbet-lemon .
+  - docker images
   - cat my_pswd | docker login -u rucha3 --password-stdin
   - docker push rucha3/sherbet-lemon
   - docker run -d -p rucha3/sherbet-lemon

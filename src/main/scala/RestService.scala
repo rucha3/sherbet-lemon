@@ -2,6 +2,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream._
 import akka.http.scaladsl.server.Directives._
+import com.typesafe.config.ConfigFactory
 
 import scala.util.parsing.json.{JSON, JSONObject}
 
@@ -44,9 +45,11 @@ class RestService extends RestServer {
 
   def startServer = {
 
-    Http().bindAndHandle(greetRoute ~ healthRoute, "localhost", 8080)
+    val config = ConfigFactory.load()
+    val port = config.getInt("default-http-port")
+    Http().bindAndHandle(greetRoute ~ healthRoute, "0.0.0.0", port)
 
-    println("Started server at 8080")
+    println("Started server at " + port)
   }
 
 }
